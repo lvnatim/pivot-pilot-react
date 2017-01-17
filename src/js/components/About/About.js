@@ -1,18 +1,32 @@
 import React from "react";
-
+import fade from "../../fade";
 
 
 export default class About extends React.Component{
+
+  componentDidMount(){
+    fade();
+  }
+
   render(){
     return(
       <div className="AboutContainer container-fluid">
         <div className="row">
-          <h3>We like to call ourselves visual communicators ... it sounds fancy</h3>
           <div className="col-xs-4"/>
           <div className="col-xs-8">
-            <img className="img-responsive" src="https://www.fillmurray.com/800/500"/>
+            <div id="FadeContainer" className="FadeContainer" data-active-image="0">
+              <img className="img-responsive" src="https://www.fillmurray.com/800/500"/>
+              <img className="img-responsive" src="https://www.fillmurray.com/800/400"/>
+              <img className="img-responsive" src="https://www.fillmurray.com/800/450"/>
+              <div id="FadeDots" data-active-dot="0">
+                <div className="dot" data-position="0"></div>
+                <div className="dot" data-position="1"></div>
+                <div className="dot" data-position="2"></div>
+              </div>
+            </div>
             <p>Pivot and Pilot is creative agency based in Vancouver B.C. We are a collective of visual communicators who used a blend of design, animation and illustration to create engaging and unique blending, websites and motion graphics.</p>
           </div>
+          <h3>We like to call ourselves visual communicators ... it sounds fancy</h3>
         </div>
 
         <div className="row Carousel">

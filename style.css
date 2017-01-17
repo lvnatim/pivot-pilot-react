@@ -201,6 +201,9 @@ h1, h2, h3, h4, h5, h6, li, ul, a, p {
 .active .circle > img.white {
   opacity: 1; }
 
+.AboutContainer {
+  margin-top: 120px; }
+
 .AdjacentPostsContainer {
   padding-top: 96px; }
 
@@ -352,6 +355,48 @@ h1, h2, h3, h4, h5, h6, li, ul, a, p {
 
 .EmptyQuote {
   padding-top: 48px; }
+
+#FadeContainer {
+  height: 500px;
+  width: 800px;
+  overflow: hidden;
+  position: relative; }
+
+#FadeContainer .img-responsive {
+  height: 100%;
+  width: auto;
+  opacity: 0;
+  position: absolute;
+  transition: 0.5s; }
+
+#FadeContainer[data-active-image="0"] .img-responsive:nth-of-type(1) {
+  opacity: 1; }
+
+#FadeContainer[data-active-image="1"] .img-responsive:nth-of-type(2) {
+  opacity: 1; }
+
+#FadeContainer[data-active-image="2"] .img-responsive:nth-of-type(3) {
+  opacity: 1; }
+
+#FadeDots {
+  position: absolute;
+  right: 24px;
+  bottom: 18px; }
+
+#FadeDots .dot {
+  background: white;
+  display: inline-block;
+  margin-left: 12px;
+  position: initial; }
+
+#FadeDots[data-active-dot="0"] .dot:nth-of-type(1) {
+  background: #443cff; }
+
+#FadeDots[data-active-dot="1"] .dot:nth-of-type(2) {
+  background: #443cff; }
+
+#FadeDots[data-active-dot="2"] .dot:nth-of-type(3) {
+  background: #443cff; }
 
 .Filter li {
   cursor: pointer;
