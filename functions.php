@@ -278,6 +278,23 @@ function get_custom_field($object, $field_name, $request){
   return get_field($field_name,$object["id"]);
 }
 
+function get_member_data($object, $field_name, $request){
+  return get_field($field_name, $object["id"]);
+}
+
+function register_member_data($field_name){
+
+register_rest_field('page',
+  $field_name,
+  array(
+    'get_callback' => 'get_member_data',
+    'update_callback' => null,
+    'schema' => null
+  )
+);
+
+}
+
 function register_field() {
   register_rest_field( 'clients',
       'services_array',
@@ -305,6 +322,8 @@ function register_field() {
   register_adjacent_field('next_background_color', 'get_next_background_color');
   register_adjacent_field('next_text_color', 'get_next_text_color');
   register_adjacent_field('next_id', 'get_next_id');
+  
+
   $field_names = array(
     'animation',
     'animation_content',
@@ -361,6 +380,15 @@ function register_field() {
   );
   foreach($field_names as $field_name){
     register_custom_field_for_clients($field_name);
+  }
+
+  $member_field_names = array(
+    'team_member_one_first_name',
+    'team_member_one_last_name',
+    'team_member_one_picture',
+  );
+  foreach($member_field_names as $field_name){
+    register_member_data($field_name);
   }
 }
 

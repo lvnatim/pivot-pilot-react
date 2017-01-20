@@ -26,7 +26,7 @@ class App extends React.Component{
   render(){
     return(
       <div>
-        <Header/>
+        <Header currentPage={this.props.children}/>
         {this.props.children || <Home/>}
       </div>
     )

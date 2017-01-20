@@ -202,7 +202,32 @@ h1, h2, h3, h4, h5, h6, li, ul, a, p {
   opacity: 1; }
 
 .AboutContainer {
-  margin-top: 120px; }
+  background: -moz-linear-gradient(top, #443cff 0%, rgba(255, 255, 255, 0) 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #443cff 0%, rgba(255, 255, 255, 0) 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #443cff 0%, rgba(255, 255, 255, 0) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#443cff', endColorstr='#00ffffff',GradientType=0 );
+  /* IE6-9 */
+  padding-top: 168px; }
+
+.AboutContainer h3,
+.AboutContainer p {
+  color: white; }
+
+.AboutContainer p:not(.title) {
+  font-family: arno-pro;
+  font-size: 24px; }
+
+.AboutContainer > .row > .col-xs-8 {
+  padding-right: 48px; }
+
+.AboutExcerptContainer {
+  position: absolute;
+  top: 40%; }
+  .AboutExcerptContainer h3 {
+    font-size: 48px; }
 
 .AdjacentPostsContainer {
   padding-top: 96px; }
@@ -358,13 +383,12 @@ h1, h2, h3, h4, h5, h6, li, ul, a, p {
 
 #FadeContainer {
   height: 500px;
-  width: 800px;
   overflow: hidden;
   position: relative; }
 
 #FadeContainer .img-responsive {
-  height: 100%;
-  width: auto;
+  height: auto;
+  width: 100%;
   opacity: 0;
   position: absolute;
   transition: 0.5s; }
@@ -381,12 +405,11 @@ h1, h2, h3, h4, h5, h6, li, ul, a, p {
 #FadeDots {
   position: absolute;
   right: 24px;
-  bottom: 18px; }
+  top: 12px; }
 
 #FadeDots .dot {
   background: white;
-  display: inline-block;
-  margin-left: 12px;
+  margin-top: 12px;
   position: initial; }
 
 #FadeDots[data-active-dot="0"] .dot:nth-of-type(1) {
@@ -1077,27 +1100,6 @@ h1, h2, h3, h4, h5, h6, li, ul, a, p {
   bottom: 0;
   left: 0; }
 
-.TeamMember {
-  display: inline-block; }
-
-.TeamMember:hover .overlay {
-  background: #443cff;
-  opacity: 0.75;
-  mix-blend-mode: multiply; }
-
-.TeamMemberInfoContainer {
-  max-width: 75%;
-  margin-left: 25%; }
-
-.TeamMemberPictureContainer {
-  width: 300px;
-  height: 300px;
-  position: relative; }
-
-.TeamMember:hover .TeamFact {
-  opacity: 1;
-  transform: rotateZ(0deg); }
-
 .TeamFact {
   opacity: 0;
   position: absolute;
@@ -1108,11 +1110,88 @@ h1, h2, h3, h4, h5, h6, li, ul, a, p {
   transition: 0.3s;
   width: 30%; }
 
+.TeamMember {
+  display: inline-block;
+  margin-left: -150px;
+  position: absolute;
+  transition: 1s;
+  width: 300px; }
+
+.TeamMember {
+  left: -100%;
+  transition: 0s; }
+
+.TeamMember.prev {
+  left: 10%;
+  transition: 1s; }
+
+.TeamMember.current {
+  left: 50%;
+  transition: 1s; }
+
+.TeamMember.next {
+  left: 90%;
+  transition: 1s; }
+
+.TeamMember.primedLeft {
+  left: -100%;
+  transition: 1s; }
+
+.TeamMember.primedRight {
+  left: 200%;
+  transition: 1s; }
+
+.TeamMember:hover .overlay {
+  background: #443cff;
+  opacity: 0.75;
+  mix-blend-mode: multiply; }
+
+.TeamMember:hover .TeamFact {
+  opacity: 1;
+  transform: rotateZ(0deg); }
+
+.TeamMember:hover .TeamMemberText h4 {
+  opacity: 1; }
+
+.TeamMember h3,
+.TeamMember p {
+  color: #443cff; }
+
+.TeamMember h3 {
+  font-size: 42px; }
+
+.TeamMemberContainer {
+  height: 600px;
+  margin-top: 120px;
+  margin-left: -48px;
+  position: relative; }
+
+.TeamMemberInfoContainer {
+  max-width: 75%;
+  margin-left: 40%;
+  margin-top: -24px;
+  position: relative;
+  z-index: 2; }
+
+.TeamMemberPictureContainer {
+  width: 300px;
+  height: 300px;
+  z-index: 1;
+  position: relative; }
+
+.TeamMemberScrollContainer {
+  position: absolute;
+  left: 50%;
+  margin-left: -24px;
+  bottom: 0;
+  width: 240px; }
+
 .TeamMemberLogo {
   top: -25%;
   left: -25%;
   position: absolute;
-  width: 50%; }
+  width: 50%;
+  z-index: 1; }
 
 .TeamMemberText {
   align-items: center;
@@ -1125,6 +1204,14 @@ h1, h2, h3, h4, h5, h6, li, ul, a, p {
   bottom: 0;
   z-index: -1; }
 
+.TeamMemberText h4 {
+  color: white;
+  font-size: 30px;
+  opacity: 0;
+  text-align: center;
+  transition: 0.3s;
+  z-index: 1; }
+
 .TeamMemberText .overlay {
   position: absolute;
   top: 0;
@@ -1132,6 +1219,22 @@ h1, h2, h3, h4, h5, h6, li, ul, a, p {
   left: 0;
   right: 0;
   transition: 0.3s; }
+
+.TeamScrollIcon {
+  position: absolute;
+  width: 50%;
+  left: -25%; }
+
+.TeamScrollIcon#MemberPrev {
+  cursor: pointer;
+  margin-left: -25px; }
+
+.TeamScrollIcon#MemberNext {
+  margin-left: 25px;
+  cursor: pointer; }
+
+.TeamScrollIcon#MemberProfile {
+  z-index: 1; }
 
 .title {
   font-size: 12px;
